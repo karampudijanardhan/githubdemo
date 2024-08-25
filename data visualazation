@@ -1,0 +1,57 @@
+#importing libraries
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+df=pd.read_csv("desktop/janardhan.csv")
+df
+df.info()
+df.head()
+df.tail()
+df.shape
+df.columns
+df.isnull().sum()
+janardhan_make_counts=df['age'].value_counts()
+print(janardhan_make_counts)
+janardhan_make_counts=df['university'].value_counts()
+print(janardhan_make_counts)
+df.dropna()
+df.drop_duplicates()
+df.describe()
+len(df.columns)
+corr=df['age'].corr(df['isolation'])
+print(corr)
+df.boxplot()
+plt.figure(figsize=(10,6))
+sns.lineplot(df['age'])
+plt.title('health issues',fontsize=15,color='red')
+plt.ylabel('model')
+plt.show()
+plt.figure(figsize=(10,6))
+sns.boxplot(df['age'])
+plt.title('health issues',fontsize=15,color='red')
+plt.xlabel('age')
+plt.ylabel('model')
+plt.show()
+plt.figure(figsize=(10,6))
+sns.histplot(df['age'],bins=20,kde=True)
+plt.title('health issues',fontsize=15,color='red')
+plt.xlabel('age')
+plt.ylabel('model')
+plt.show()
+plt.figure(figsize=(10,6))
+sns.scatterplot(x='age',y='isolation',data=df)
+plt.title('health issues')
+plt.xlabel('age')
+plt.ylabel('isolation')
+plt.show()
+selected_columns=['age','cgpa','isolation']
+sns.pairplot(df[selected_columns])
+plt.show()
+plt.figure(figsize=(10,6))
+sns.violinplot(df['age'])
+plt.title('health issues',fontsize=15,color='red')
+plt.xlabel('age')
+plt.ylabel('model')
+plt.show()
